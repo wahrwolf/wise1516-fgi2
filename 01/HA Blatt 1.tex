@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%\usepackage{xcolor}%für die Farben
+
+\usepackage{tikz}
+
+
+\title{Formale Grundlagen der Informatik I - Blatt 12}
+\author{Vincent6689845  \and Mirco \and Tim Jammer 6527284}
+
+
+
+
+\begin{document}
+
+\maketitle{}
+
+\section*{1.3}
+
+\subsection*{1.}
+\[d+ada+abdba+abadaba+.....+aba...ada...aba+aba...abdba...aba+aba...abxy\]
+Dieser Reguläre Ausdruck beschreibt alle möglichen Pfade im Automaten einzelnd, da dies nur endlich viele sind, ist der ausdruck auch nur endlich lang.
+(bei der "{}Konstruktion"{} nach den Regeln im Skript wurden die Klammern weggelassen)
+\subsection*{2.}
+\[\{d\}\cup \{(ab)^md(ba)^m|m\leq n,\ m\in\mathbb{N}\} \cup \{a(ab)^mda(ba)^m|m< n,\ m\in\mathbb{N}\} \cup \{ada\}\cup \{(ab)^n\}\]
+Vereinfacht kann man auch angeben:
+\[\{wdw^{rev}\}\]
+mit
+\[w\in \left(\{(ab)^m|m<n,\ m\in\mathbb{N}\}\cdot \{\lambda,a,ab\}\right) \]
+\subsection*{3.}
+Begründung für 1 gibt sich aus Konstruktion, da jeder Pfad einzeln beschrieben wurde.\\
+zu 2.:\\
+Auch die Mengen bezeichnen die einzelnen Pfade im Automaten
+$\{d\} \cup \{ada\}\cup \{(ab)^n\}$ Beschreibt die "{}Sonderfälle"{}\\
+\\
+$ \{(ab)^md(ba)^m|m\leq n\ m\in\mathbb{N}\}$ Beschreibt dabei alle Pfade, die vor dem d auf b enden (also alle diejenigen, mit einer graden Anzahl von Buchstaben vor dem d)\\
+\\
+$ \cup \{a(ab)^mda(ba)^m|m< n\ m\in\mathbb{N}\}$ Beschreibt dabei alle Pfade, die vor dem d auf b enden (also alle diejenigen, mit einer ungraden Anzahl von Buchstaben vor dem d)\\
+\subsection*{4.}
+Offensichtlicherweise ist $L(A_n)$ Regulär, da der endliche DFA $A_n$ diese Sprache Akzeptiert.
+
+\section*{1.4}
+\subsection*{1.}
+Wir Konstruieren einen NFA B, der Das Gewünschte leistet, danach wenden wir auf diesen die Potenzautomatenkonstruktion an.\\
+Der NFA B ensteht aus A, in dem der Startzustand von A zum Endzustand von B wird und alle Endzustände von A sind nun Startzustände von B. Außerdem drehen wir alle Kanten um.\\
+Formal:\\
+\[A=(Q,\Sigma,\delta,\{q_0\},F)\]
+\[A=(Q,\Sigma,\delta',F,\{q_0\})\]
+mit \[\delta' = \{(p,a,q)|(q,a,p)\in \delta\}\]
+Das Verfahren ist Korrekt, da durch das umdrehen der Kanten und dem vertauschen der Start und endzustandsmenge der Automat Rückwärts durchlaufen wird, also genau $w^{rev}$ akzeptiert.\\
+Der dabei in B eventuell entstehende Nichtdeterminismus ist dabei kein Problem, Falls es eine Erfolgsrechnung gibt, so ist dies genau die Rechnung, die der Zu grunde Liegende Automat A in anderer richtung gemacht hätte.
+\subsection*{2.}
+$M\subseteq L(A)$:\\
+Sei w in M, daher enthält w das teilwort $reed$ man kann w also zerlegen in $uvz$ mit $u,z\in \Sigma^*$ und $v$ das erste vorkommen von $reed$  nach dem Einleden von u kann der Automat nur in $q_0, q_1,q_2,q_3$ sein, da reed noch nicht als Teilwort in u enthalten war. mit dem Einlesen von $r$ gelangt man nun von jedem zustand aus nach $q_1$. Lesen von $eed$ führt dann dazu, dass der Automat auch in endzustand $q_4$ ist. in $q_4$ kann dann das Restliche wort $z$ eingelesen werden, ohne das $q_4$ verlassen wird. Daher wird w akzeptiert.\\
+\\
+$L(A)\subseteq M$:\\
+sei $w \in L(A)$ dan muss es eine Erfolgsrechnung im Automaten geben. Die Einzige Möglichkeit vom Startzustand $q_0$ zm Endzustand $q_4$ zu gelangen besteht darin das wort reed zu lesen. Falls ein andees Wort gelesen wird, so verbleibt der Automat in $q_0, q_1,q_2,q_3$. Somit muss $w\ reed$ als Teilwort enthalten und ist damit in M.
+\subsection*{3.}
+\[(r+e+d)^*\cdot r\cdot e\cdot d\cdot(r+e+d)^*\]
+auf die Klammern wurde, wo möglich, verzichtet
+\subsection*{4.}
+
+\subsection*{5.}
+siehe 1.
+
+
+
+\end{document}

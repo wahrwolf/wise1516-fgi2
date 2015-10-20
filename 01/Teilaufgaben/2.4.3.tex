@@ -1,0 +1,30 @@
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[->,shorten >=1pt,auto,node distance=2.5 cm, scale = 1, transform shape]
+
+%\tikzstyle{every state}=[fill=white,draw=black,text=black]
+
+%Erstelle 5 Zustände
+
+\node[state,initial]	(E)			{$\{q_4\}$};
+\node[state]		(ED)	[right of =E]	{$\{q_4,q_3\}$};
+\node[state]		(C)	[right of =D]	{$\{q_2\}$};
+\node[state]		(B)	[right of =C]	{$\{q_1\}$};
+\node[state,accepting]	(A)	[right of =B]	{$\{q_0\}$};
+\node[state,accepting]	(ABCD)	[above of =B]	{$\{q_0,q_1,q_2,q_3\}$};
+
+
+
+%Erstelle Übergänge
+\path	(E) 	edge	[loop above]	node 	{r,e}	(E)
+		edge	[bend left]	node	{d}		(ED)
+	(ED)	edge	[bend left]	node	{e}		(C)
+		edge	[bend left]	node	{r}		(E)
+		edge	[loop below]	node	{d}	(D)
+	(C)	edge	[bend left]	node	{r,d}	(ED)
+		edge			node	{e}		(B)
+	(B)	edge	[bend left]	node	{e,d}	(B)
+		edge	[bend right]	node	{r}		(ABCD);
+\end{tikzpicture}
+\caption{Der Potenzautomat A rev}
+\end{figure}

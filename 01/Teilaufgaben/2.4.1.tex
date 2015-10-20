@@ -1,0 +1,32 @@
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.5 cm, scale = 1, transform shape]
+
+%\tikzstyle{every state}=[fill=white,draw=black,text=black]
+
+%Erstelle 5 Zustände
+
+\node[initial,state]	(A)					{$q_0$};
+\node[state]			(B)	[right of =A]	{$q_1$};
+\node[state]			(C)	[right of =B]	{$q_2$};
+\node[state]			(D)	[right of =C]	{$q_3$};
+\node[state,accepting]	(E)	[right of =D]	{$q_4$};
+
+%Erstelle Übergänge
+\path	(A)	edge					node	{r} 	(B)
+			edge	[loop above]	node	{d,e}	(A)
+		(B)	edge					node	{e}		(C)
+			edge	[loop above]	node	{r}		(B)
+			edge	[bend left]		node	{d}		(A)
+		(C) edge					node	{e}		(D)
+			edge	[bend left]		node	{r}		(B)
+			edge	[bend left]		node	{d}		(A)
+		(D) edge					node	{d}		(E)
+			edge	[bend right]	node	{r}		(B)
+			edge	[bend left]		node	{e}		(A)
+		(E) edge	[loop above]	node	{r,e,d}	(E);
+
+
+\end{tikzpicture}
+\caption{Der Ursprüngliche DFA A}
+\end{figure}

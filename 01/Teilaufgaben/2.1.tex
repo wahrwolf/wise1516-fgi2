@@ -1,0 +1,8 @@
+Wir Konstruieren einen NFA B, der Das Gewünschte leistet, danach wenden wir auf diesen die Potenzautomatenkonstruktion an.\\
+Der NFA B ensteht aus A, in dem der Startzustand von A zum Endzustand von B wird und alle Endzustände von A sind nun Startzustände von B. Außerdem drehen wir alle Kanten um.\\
+Formal:\\
+\[A=(Q,\Sigma,\delta,\{q_0\},F)\]
+\[A=(Q,\Sigma,\delta',F,\{q_0\})\]
+mit \[\delta' = \{(p,a,q)|(q,a,p)\in \delta\}\]
+Das Verfahren ist Korrekt, da durch das umdrehen der Kanten und dem vertauschen der Start und endzustandsmenge der Automat Rückwärts durchlaufen wird, also genau $w^{rev}$ akzeptiert.\\
+Der dabei in B eventuell entstehende Nichtdeterminismus ist dabei kein Problem, Falls es eine Erfolgsrechnung gibt, so ist dies genau die Rechnung, die der Zu grunde Liegende Automat A in anderer richtung gemacht hätte.

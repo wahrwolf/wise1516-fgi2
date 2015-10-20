@@ -1,0 +1,5 @@
+$M\subseteq L(A)$:\\
+Sei w in M, daher enthält w das teilwort $reed$ man kann w also zerlegen in $uvz$ mit $u,z\in \Sigma^*$ und $v$ das erste vorkommen von $reed$  nach dem Einleden von u kann der Automat nur in $q_0, q_1,q_2,q_3$ sein, da reed noch nicht als Teilwort in u enthalten war. mit dem Einlesen von $r$ gelangt man nun von jedem zustand aus nach $q_1$. Lesen von $eed$ führt dann dazu, dass der Automat auch in endzustand $q_4$ ist. in $q_4$ kann dann das Restliche wort $z$ eingelesen werden, ohne das $q_4$ verlassen wird. Daher wird w akzeptiert.\\
+\\
+$L(A)\subseteq M$:\\
+sei $w \in L(A)$ dan muss es eine Erfolgsrechnung im Automaten geben. Die Einzige Möglichkeit vom Startzustand $q_0$ zm Endzustand $q_4$ zu gelangen besteht darin das wort reed zu lesen. Falls ein andees Wort gelesen wird, so verbleibt der Automat in $q_0, q_1,q_2,q_3$. Somit muss $w\ reed$ als Teilwort enthalten und ist damit in M.
