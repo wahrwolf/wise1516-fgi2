@@ -1,0 +1,29 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[initial,state] (q0p1)                    {$q_0,p_1$};
+  \node[initial,state] (q1p1) [ right of=q0p1]           {$q_1,p_1$};
+  \node[state] (q2p1) [ right of=q1p1]           {$q_2,p_1$};
+  \node[state] (q3p1) [ right of=q2p1]           {$q_3,p_1$};
+  
+  \node[state,accepting] (q0p2) [ below of=q0p1]                   {$q_0,p_2$};
+  \node[state] (q1p2) [ right of=q0p2]           {$q_1,p_2$};
+  \node[state] (q2p2) [ right of=q1p2]           {$q_2,p_2$};
+  \node[state,accepting] (q3p2) [ right of=q2p2]           {$q_3,p_2$};
+
+
+  \path (q0p1) edge [bend left]         node {a} (q0p2)
+ 		
+ 		(q1p1) edge [bend left]         node {b} (q2p2)
+ 		
+ 		(q3p1) edge [bend left]         node {d} (q2p2)
+  
+		(q0p2) edge  [bend left]          node {a} (q0p1)
+		
+		(q2p2) edge [bend left]         node {c} (q3p1)
+		
+		;
+        
+
+\end{tikzpicture}

@@ -1,0 +1,51 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[initial, state, accepting] (q0p11)                    {$q_0,p_1,1$};
+  \node[initial,state] (q1p11) [ right of=q0p11]           {$q_1,p_1,1$};
+  \node[state] (q2p11) [ right of=q1p11]           {$q_2,p_1,1$};
+  \node[state, accepting] (q3p11) [ right of=q2p11]           {$q_3,p_1,1$};
+  
+  \node[state, accepting] (q0p21) [ below of=q0p11]                   {$q_0,p_2,1$};
+  \node[state] (q1p21) [ right of=q0p21]           {$q_1,p_2,1$};
+  \node[state] (q2p21) [ right of=q1p21]           {$q_2,p_2,1$};
+  \node[state, accepting] (q3p21) [ right of=q2p21]           {$q_3,p_2,1$};
+  
+  \node[state] (q0p12) [ below of=q0p21]                   {$q_0,p_1,2$};
+  \node[state] (q1p12) [ right of=q0p12]           {$q_1,p_1,2$};
+  \node[state] (q2p12) [ right of=q1p12]           {$q_2,p_1,2$};
+  \node[state] (q3p12) [ right of=q2p12]           {$q_3,p_1,2$};
+  
+  \node[state] (q0p22) [ below of=q0p12]                   {$q_0,p_2,2$};
+  \node[state] (q1p22) [ right of=q0p22]           {$q_1,p_2,2$};
+  \node[state] (q2p22) [ right of=q1p22]           {$q_2,p_2,2$};
+  \node[state] (q3p22) [ right of=q2p22]           {$q_3,p_2,2$};
+
+
+  \path (q0p11) edge [bend left]         node {a} (q0p22)
+ 		
+ 		(q1p11) edge [bend left]         node {b} (q2p21)
+ 		
+ 		(q3p11) edge [bend left]         node {d} (q2p22)
+  
+		(q0p21) edge  [bend left]          node {a} (q0p12)
+		
+		(q2p21) edge [bend left]         node {c} (q3p11)
+		
+		
+		(q0p12) edge [bend left]         node {a} (q0p22)
+ 		
+ 		(q1p12) edge [bend left]         node {b} (q2p22)
+ 		
+ 		(q3p12) edge [bend left]         node {d} (q2p22)
+  
+		(q0p22) edge  [bend left]          node {a} (q0p11)
+		
+		(q2p22) edge [bend left]         node {c} (q3p11)
+		
+		
+		;
+        
+
+\end{tikzpicture}
