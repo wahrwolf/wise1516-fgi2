@@ -1,0 +1,17 @@
+\begin{tabular}{p{3cm}|p{6cm}|p{6cm}}
+
+
+$f$ & $M_{cell} \models f $&$ M_{cell},\pi \models f$ \\
+\hline
+$\diamond\Box (Active)$ & gilt nicht, da es für z.B. die Rechnung $\pi$ nicht gilt&gilt nicht, in keinem Zustand dieser Rechnung gilt Active
+\\
+$\Box\diamond (Active)$ & gilt nicht, da es für z.B. die Rechnung $\pi$ nicht gilt&gilt nicht, in keinem Zustand dieser Rechnung gilt Active
+\\
+$\Box(\circ Active \Rightarrow On)$ & gilt, $\circ Active$ kann nur in $c_2$ oder $c_3$ gelten, in diesen Gilt allerdings auch $On$,sodass die implikation immer wahr ist&gilt, in keinem Zustand dieser Rechnung gilt Active, daher ist die implikation Wahr
+\\
+$\Box\diamond ( Active \Rightarrow \circ\circ\neg On)$ &gilt nicht, z.B. die Recnung $c_0c_1c_2(c_3)^\omega$ erfüllt f nicht&gilt, in keinem Zustand dieser Rechnung gilt Active, daher ist die implikation Wahr
+\\
+$\Box\diamond ( \neg battery \vee Active \vee \neg On \vee Error)$&gilt nicht, z.B. gilt nicht, z.B. die Recnung $c_0(c_1c_2)^\omega$ erfüllt f nicht & gilt, $c_0$erfüllt $\neg On$, da $c_0$ immer wieder in der Rechnung vorkommt, gilt damit f
+\\
+$\circ\circ\circ Active$&gilt nicht, da es für z.B. die Rechnung $\pi$ nicht gilt&gilt nicht, in keinem Zustand dieser Rechnung gilt Active
+\end{tabular}

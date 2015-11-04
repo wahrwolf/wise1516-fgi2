@@ -1,0 +1,19 @@
+Alle Etiketten sind $\in P(\{Locked,Battery,On,Error,Active\})$
+\begin{align*}
+E_S(c_0)&=\{Locked,Battery\}\\
+E_S(c_1)&=\{Locked,Battery,On\}\\
+E_S(c_2)&=\{Battery,On\}\\
+E_S(c_3)&=\{Battery,On,Active\}\\
+E_S(c_4)&=\{Locked,Battery,Error\}\\
+E_S(c_5)&=\{Locked\}
+\end{align*}
+es ergibt sich (durch einfaches austauschen der Zustände durch ihre entsprechenden ettiketten):
+\begin{align*}
+ E_S(SS(M_{cell}))=&( \{Locked,Battery\}\{Locked,Battery,On\}\\
+ &(\{Battery,On\}\{Locked,Battery,On\})^*\\
+ &(\{Battery,On,Active\}\{Battery,On,Active\}^*\{Battery,On\})^*\\
+ &(\{Locked,Battery\} + \\
+ &(\{Battery,On,Active\}\{Battery,On,Active\}^*\\
+ &\{Locked,Battery,Error\}\{Locked,Battery,Error\}^*\\
+ &\{Locked\}\{Locked,Battery\})))^\omega
+ \end{align*}
