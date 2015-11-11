@@ -1,0 +1,20 @@
+\begin{align*}
+sat(Error)&=\{c_4\}\\
+sat(\neg Battery)&=\{c_5\}\\
+sat(On)&=\{c_1,c_2,c_3\}\\
+\end{align*}
+
+
+Implikation als "{}wenn , dann"{}:\\
+\\
+Die Formel Bedeutet. Immer, wenn Error gilt, dann gilt, falls im nächsten schritt Nicht Battery gilt, irgentwann On.\\
+\\
+Oder Mit anderen Worten:\\
+\\
+Immer wenn es einen Fehler gab und im nächsten Schritt die batterie Entfernt wurde, so ist das Handy irgentwann wieder Eingeschaltet.\\
+\\
+In Einer unendlichen Folge ist diese Formel immer gültig:
+$G(Error \Rightarrow ((X\neg Battery)\Rightarrow FOn))$
+Falls Error Falsch ist, so gilt die Formel\footnote{nach definition von $\Rightarrow$}, daher schauen wir uns nur den Teil einer Rechnung an, in dem Error Wahr ist. Das Ist nur in $c_4$ der Fall. nach $c_4$ kann in der Rechnung $c_4$ oder $c_5$ folgen.\\
+Falls $c_4$ folgt, so ist $(X\neg Battery)$ nicht erfüllt und diese Implikation also Wahr.\\
+Falls $c_5$ folgt, so ist $(X\neg Battery)$ wahr, daher ist zu überprüfen, ob auch $FOn$ gilt. Dies ist der Fall, da die einzige möglichkeit wie die Rechnung fortgesetzt werden kann $c_0c_1$ ist und in $c_1$ On gilt
