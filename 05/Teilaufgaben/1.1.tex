@@ -1,16 +1,226 @@
 \subsubsection*{a)}
 \begin{align*}
 f&= \left(AG(Error \Rightarrow E(Error U \neg Battery))\right) \wedge \left( \neg AF Acrive\right)\\
-&\equiv \left(AG(Error \Rightarrow E(Error U \neg Battery))\right) \wedge \left( \neg \neg EG( \neg Acrive)\right)\\
-&\equiv \left(AG(Error \Rightarrow E(Error U \neg Battery))\right) \wedge \left( EG( \neg Acrive)\right)\\
-&\equiv \left(\neg EF (\neg(Error \Rightarrow E(Error U \neg Battery)))\right) \wedge \left( EG( \neg Acrive)\right)\\
-&\equiv \left(\neg EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \wedge \left( EG( \neg Acrive)\right)\\
-&\equiv \neg\left(\neg \neg EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \vee \left(\neg EG( \neg Acrive)\right)\\
-&\equiv \neg\left(EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \vee \left(\neg EG( \neg Acrive)\right)\\
-&\equiv \neg\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right) \vee \left(\neg EG( \neg Acrive)\right)\\
+&\equiv \left(AG(Error \Rightarrow E(Error U \neg Battery))\right) \wedge \left( \neg \neg EG( \neg Active)\right)\\
+&\equiv \left(AG(Error \Rightarrow E(Error U \neg Battery))\right) \wedge \left( EG( \neg Active)\right)\\
+&\equiv \left(\neg EF (\neg(Error \Rightarrow E(Error U \neg Battery)))\right) \wedge \left( EG( \neg Active)\right)\\
+&\equiv \left(\neg EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \wedge \left( EG( \neg Active)\right)\\
+&\equiv \neg\left(\neg \neg EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \vee \left(\neg EG( \neg Active)\right)\\
+&\equiv \neg\left(EF (\neg(\neg Error \vee E(Error U \neg Battery)))\right) \vee \left(\neg EG( \neg Active)\right)\\
+&\equiv \neg\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right) \vee \left(\neg EG( \neg Active)\right)\\
+\end{align*}
+Lang und ausführlich:\\
+Der Algorithmus muss Alle Teilformeln Bearbeiten, dies sind (in Reihenfolge der rekursiven Betrachtung durch den Algorithmus):
+\begin{align}
+&\neg\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right) \vee \left(\neg EG( \neg Active)\right)\\
+&\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right) \vee \left(\neg EG( \neg Active)\right)\\
+&\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right)\\
+& true\\
+& (\neg(\neg Error \vee E(Error U \neg Battery)))\\
+& (\neg Error \vee E(Error U \neg Battery))\\
+& \neg Error\\
+& Error\\
+& E(Error U \neg Battery))\\
+& Error \\
+& \neg Battery\\
+& Battery\\
+& \left(\neg EG( \neg Active)\right)\\
+& EG( \neg Active)\\
+& \neg Active\\
+& Active
+\end{align}
+
+Rekusrionsschritt 16 $Active$:
+\begin{align*}
+label(c_0)&=\{\}\\
+label(c_1)&=\{\}\\
+label(c_2)&=\{\}\\
+label(c_3)&=\{Active\}\\
+label(c_4)&=\{\}\\
+label(c_5)&=\{\}\\
+\end{align*}
+Rekusrionsschritt 15 $(\neg Active)$:
+\begin{align*}
+label(c_0)&=\{(\neg Active)\}\\
+label(c_1)&=\{(\neg Active)\}\\
+label(c_2)&=\{(\neg Active)\}\\
+label(c_3)&=\{Active\}\\
+label(c_4)&=\{(\neg Active)\}\\
+label(c_5)&=\{(\neg Active)\}\\
+\end{align*}
+Rekusrionsschritt 14 $(EG(\neg Active))$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_3)&=\{Active\}\\
+label(c_4)&=\{(\neg Active)\}\\
+label(c_5)&=\{(\neg Active)\}\\
+\end{align*}
+Rekusrionsschritt 13 $(\neg EG(\neg Active))$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active))\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active))\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active))\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active))\}\\
 \end{align*}
 
-Man dröselt die Formel durch Rekursion auf, wie soll man das jetzt aufschreiben??
+Rekusrionsschritt 12 $Battery$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active))\}\\
+\end{align*}
+
+Rekusrionsschritt 11 $(\neg Battery)$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery)\}\\
+\end{align*}
+
+Rekusrionsschritt 10 $Error$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery)\}\\
+\end{align*}
+
+Rekusrionsschritt 9 $E(Error U \neg Battery)$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error,E(Error U \neg Battery)\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery),E(Error U \neg Battery)\}\\
+\end{align*}
+Rekusrionsschritt 8 $Error$:\\
+kann entfallen, da $Error$ bereits überprüft wurde\\
+Rekusrionsschritt 7 $(\neg Error)$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error)\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error)\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error)\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery,(\neg Error)\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error,E(Error U \neg Battery)\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery),E(Error U \neg Battery),(\neg Error)\}\\
+\end{align*}
+Rekusrionsschritt 6 $(\neg Error \vee E(Error U \neg Battery))$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery))\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery))\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery))\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery))\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error,E(Error U \neg Battery),\\
+&(\neg Error \vee E(Error U \neg Battery))\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery),E(Error U \neg Battery),(\neg Error),\\
+&(\neg Error \vee E(Error U \neg Battery))\}\\
+\end{align*}
+Rekusrionsschritt 5 $\neg (\neg Error \vee E(Error U \neg Battery))$:\\
+Alle Label beinhalten $(\neg Error \vee E(Error U \neg Battery))$, daher bleiben sie unverändert\\
+\\
+
+Rekusrionsschritt 4 $true$:\\
+Trivial: Jedes Label enthält zusätzlich true.\\
+\\
+
+Rekusrionsschritt 3 $\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right)$:\\
+Kein Label Beinhaltet $(\neg Error \vee E(Error U \neg Battery))$, daher bleiben alle Label unverändert (Es Kann gar nichts Markiert werden, wovon ausgehend man Rückwärts suchen müsste) \\
+\\
+
+Rekusrionsschritt 2\\ $\left(E (trueU (\neg(\neg Error \vee E(Error U \neg Battery))))\right) \vee \left(\neg EG( \neg Active)\right)=f_2$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error,E(Error U \neg Battery),\\
+&(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery),E(Error U \neg Battery),(\neg Error),\\
+&(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+\end{align*}
+Rekusrionsschritt 1 $f=\neg f_2$:
+\begin{align*}
+label(c_0)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f\}\\
+label(c_1)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f\}\\
+label(c_2)&=\{(\neg Active),(EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f\}\\
+label(c_3)&=\{Active,(\neg EG(\neg Active)),\\
+&Battery,(\neg Error),(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+label(c_4)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&Battery,Error,E(Error U \neg Battery),\\
+&(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+label(c_5)&=\{(\neg Active),(\neg EG(\neg Active)),\\
+&(\neg Battery),E(Error U \neg Battery),(\neg Error),\\
+&(\neg Error \vee E(Error U \neg Battery)),\\
+&true,f_2\}\\
+\end{align*}
 
 \subsubsection*{b)}
 \begin{align*}
@@ -18,6 +228,14 @@ g&=	AGEF(Active)\\
 &\equiv\neg EF \neg EF (Active)\\
 &\equiv\neg E(true U (\neg E(trueU (Active)))\\
 \end{align*}
+Kurzform:\\
+\\
+
+$Active$ Gilt nur in $c_3$ Daher gilt auch $E(trueU (Active))$ nur in $c_3$\\
+$\neg E(trueU (Active))$ Gilt daher in allen Zuständen Außer $c_3$\\
+$E(true U (\neg E(trueU (Active)))$ Gilt daher in Allen zuständen (von $c_3$ aus kann man ja nach $c_4$)\\
+$\neg E(true U (\neg E(trueU (Active)))$ Gilt also in keinem Zustand.
+
 
 
 
