@@ -1,0 +1,26 @@
+\begin{align*}
+\phi &= G \neg (gr_1 \wedge gr_2) \\
+\neg \phi &=\neg G \neg (gr_1 \wedge gr_2) \\
+&\equiv \neg \neg F \neg \neg (gr_1 \wedge gr_2) \\
+&\equiv F (gr_1 \wedge gr_2) \\
+\end{align*}
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[initial,state] (m1)                    {$m_1$};
+  \node[state,accepting] (m2) [ right of=m1]           {$m_2$};
+
+
+  \path (m1) edge [bend right]     node {1}  (m2)
+  
+  	  (m1) edge [loop below] 	node{2}	(m1)
+ 	  (m2) edge [loop below] 	node{3}	(m2)
+		;
+\end{tikzpicture}
+
+Kantenbeschriftung: \\
+1: $Obermengen(\{gr_1,gr_2\})$\\
+2: $AP / Obermengen(\{gr_1,gr_2\})$\\
+3: $AP$

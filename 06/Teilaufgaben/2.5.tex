@@ -1,0 +1,52 @@
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+     \node[initial, state] (b1m1)   {$B_1M_1$};
+
+  \node[state] (b2m1)   [ right of=b1m1]     {$B_2M_1$}; 
+     
+  
+   \node[state] (b3m1) [ right of=b2m1]	{$B_3M_1$};  
+     
+ 
+    \node[state] (b4m1) [ right of=b3m1]	{$B_4M_1$};
+    
+  \node[state,accepting] (b1m2)[ below of=b1m1]    {$B_1M_2$};
+
+  \node[state] (b2m2)   [ right of=b1m2]     {$B_2M_2$}; 
+     
+  
+   \node[state] (b3m2) [ right of=b2m2]	{$B_3M_2$};  
+     
+ 
+    \node[state] (b4m2) [ right of=b3m2]	{$B_4M_2$};
+ 
+     
+     
+ 
+  \path   
+  	  (b1m1) edge 	node {$rg_1,g_2$}	(b2m1)   	  
+    
+ 	  (b2m1) edge 	node {$gr_1,r_2$} (b3m1)    
+  	  
+  	   	  (b3m1) edge 	node {$g_1,rg_2$}	(b4m1)    	  
+  	  
+  	  (b4m1) edge [bend left] node  {$r_1,gr_2$}	(b1m1)
+  	  
+  	  
+  	  
+  	    	  (b1m2) edge 	node {$rg_1,g_2$}	(b2m2)   	  
+    
+ 	  (b2m2) edge 	node {$gr_1,r_2$} (b3m2)    
+  	  
+  	   	  (b3m2) edge 	node {$g_1,rg_2$}	(b4m2)    	  
+  	  
+  	  (b4m2) edge [bend left] node  {$r_1,gr_2$}	(b1m2)
+  
+  	
+		;
+        
+
+\end{tikzpicture}
