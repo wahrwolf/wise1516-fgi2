@@ -1,0 +1,52 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[state] (r1r2)                  	  {$r_1r_2$};
+   \node[state] (r1rg2) [ below of=r1r2]	{$r_1rg_2$};
+    \node[initial,state] (r1gr2) [ below of=r1rg2]	{$r_1gr_2$};
+     \node[state] (r1g2)[ below of=r1gr2]    {$r_1g_2$};
+
+  \node[state] (rg1r2)   [ left of=r1r2]     {$rg_1r_2$};
+   \node[state] (rg1rg2) [ below of=rg1r2]	{$rg_1rg_2$};
+    \node[state] (rg1gr2) [ below of=rg1rg2]	{$rg_1gr_2$};
+     \node[state] (rg1g2)[ below of=rg1gr2]    {$rg_1g_2$}; 
+     
+  \node[state] (gr1r2)   [ left of=rg1r2]     {$gr_1r_2$};
+   \node[state] (gr1rg2) [ below of=gr1r2]	{$gr_1rg_2$};
+    \node[state] (gr1gr2) [ below of=gr1rg2]	{$gr_1gr_2$};
+     \node[state] (gr1g2)[ below of=gr1gr2]    {$gr_1g_2$}; 
+     
+  \node[state] (g1r2)   [ left of=gr1r2]     {$g_1r_2$};
+   \node[state] (g1rg2) [ below of=g1r2]	{$g_1rg_2$};
+    \node[state] (g1gr2) [ below of=g1rg2]	{$g_1gr_2$};
+     \node[state] (g1g2)[ below of=g1gr2]    {$g_1g_2$};   
+     
+     
+ 
+  \path   
+  	  (r1r2) edge 		(rg1rg2)
+   	  (r1rg2) edge 		(rg1gr2)
+  	  (r1gr2) edge 		(rg1g2)
+  	  (r1g2) edge 		(rg1r2)
+  	  
+ 	  (rg1r2) edge 		(gr1rg2)
+   	  (rg1rg2) edge 		(gr1gr2)
+  	  (rg1gr2) edge 		(gr1g2)
+  	  (rg1g2) edge 		(gr1r2)  
+  	  
+  	  (gr1r2) edge 		(g1rg2)
+   	  (gr1rg2) edge 		(g1gr2)
+  	  (gr1gr2) edge 		(g1g2)
+  	  (gr1g2) edge 		(g1r2)	
+  	  
+  	    	  
+  	  (g1r2) edge 		(r1rg2)
+   	  (g1rg2) edge 		(r1gr2)
+  	  (g1gr2) edge 		(r1g2)
+  	  (g1g2) edge 		(r1r2)  
+  	
+		;
+        
+
+\end{tikzpicture}

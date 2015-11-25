@@ -1,0 +1,42 @@
+Ampel1:
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[initial,state] (r)                    {rot};
+  \node[state] (rg) [ below of=r]           {rot-gelb};
+  \node[state] (gr) [ below of=rg]           {grün};
+  \node[state] (g) [ below of=gr]           {gelb};
+
+  \path (g) edge [bend right]       (r)
+  
+  	  (r) edge 		(rg)
+   	  (rg) edge 		(gr)
+   	  (gr) edge 		(g)		
+		;
+        
+
+\end{tikzpicture}
+Ampel2:
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=black,text=black]
+
+  \node[state] (r)                    {rot};
+  \node[state] (rg) [ below of=r]           {rot-gelb};
+  \node[initial,state] (gr) [ below of=rg]           {grün};
+  \node[state] (g) [ below of=gr]           {gelb};
+
+  \path (g) edge [bend right]       (r)
+  
+  	  (r) edge 		(rg)
+   	  (rg) edge 		(gr)
+   	  (gr) edge 		(g)		
+		;
+        
+
+\end{tikzpicture}
+
+
+
+
