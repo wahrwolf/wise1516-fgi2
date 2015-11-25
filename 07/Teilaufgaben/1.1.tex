@@ -1,2 +1,30 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=none,text=black]
 
-GRAPH!
+  \node[state] (110)                    {$\begin{pmatrix} 1 \\1\\0 \end{pmatrix}$};
+  \node[state] (200) [ right of=110]           {$\begin{pmatrix} 2 \\0\\0 \end{pmatrix}$};
+  \node[state] (020) [ below of=110]           {$\begin{pmatrix} 0 \\2\\0 \end{pmatrix}$};
+  \node[state] (001) [ below of=020]           {$\begin{pmatrix} 0 \\0\\1 \end{pmatrix}$};
+  \node[state] (010) [ right of=001]           {$\begin{pmatrix} 0 \\1\\0 \end{pmatrix}$};
+  \node[state] (100) [ right of=010]           {$\begin{pmatrix} 1 \\0\\0 \end{pmatrix}$};
+  
+
+
+  \path (110) edge [bend left]         node {$t_2$} (200)
+ 		(110) edge [bend left]         node {$t_1$} (020)
+ 		
+ 		(200) edge [bend left]         node {$t_1$} (110)
+ 		
+		(020) edge [bend left]         node {$t_2$} (110)
+ 		(020) edge [bend left]         node {$t_4$} (001)
+ 		
+ 		(001) edge [bend left]         node {$t_3$} (010)
+ 		
+ 		(010) edge [bend left]         node {$t_2$} (100)
+ 			(100) edge [bend left]         node {$t_1$} (010)
+		
+		;
+        
+
+\end{tikzpicture}

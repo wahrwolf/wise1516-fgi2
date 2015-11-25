@@ -1,1 +1,38 @@
-GRAPH!
+Wir setzen das Kantengewicht der kante von $p_2$ nach $t_4$ auf 1\\
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=none,text=black]
+
+  \node[state] (020)            				{$\begin{pmatrix} 0 \\2\\0 \end{pmatrix}$};
+  \node[state] (110) [ above of=020]    		{$\begin{pmatrix} 1 \\1\\0 \end{pmatrix}$};  
+  \node[state] (200) [ right of=110]         	{$\begin{pmatrix} 2 \\0\\0 \end{pmatrix}$};
+  \node[state] (101) [ left of=020]        	{$\begin{pmatrix} 1 \\0\\1 \end{pmatrix}$};  
+  \node[state] (011) [ below of=020]           	{$\begin{pmatrix} 0 \\1\\1 \end{pmatrix}$};
+  \node[state] (002) [ right of=011]  		   	{$\begin{pmatrix} 0 \\0\\2 \end{pmatrix}$};
+   
+
+ 
+
+  \path (110) edge [bend left]         node {$t_2$} (200)
+ 		(110) edge [bend left]         node {$t_1$} (020)
+ 		(110) edge          node {$t_4$} (101)
+		
+ 		(200) edge [bend left]         node {$t_1$} (110)
+
+		(101) edge          node {$t_1$} (011)
+		(101) edge [bend left]         node {$t_3$} (110)
+ 		
+		(020) edge         node {$t_2$} (110)
+ 		(020) edge [bend left]         node {$t_4$} (011)
+ 		
+		(011) edge [bend left]         node {$t_2$} (101)
+		(011) edge         node {$t_3$} (020)
+		(011) edge [bend left]         node {$t_4$} (002) 
+		
+		(002) edge [bend left]         node {$t_3$} (011)		
+	
+		;
+        
+
+\end{tikzpicture}
+
