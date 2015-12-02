@@ -1,0 +1,61 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=none,draw=none,text=black]
+
+  \node[state] (0000200)                    {$\begin{pmatrix} 0\\0\\0\\0\\2\\0\\0 \end{pmatrix}$};
+  
+   \node[state] (0000110) [right of=0000200]                   {$\begin{pmatrix} 0\\0\\0\\0\\1\\1\\0 \end{pmatrix}$};
+   \node[state] (0000101) [above of=0000110]                   {$\begin{pmatrix} 0\\0\\0\\0\\1\\0\\1 \end{pmatrix}$};
+   
+      \node[state] (0000011) [right of=0000110]                   {$\begin{pmatrix} 0\\0\\0\\0\\0\\1\\1 \end{pmatrix}$};
+      
+            \node[state] (1100000) [below of=0000011]                   {$\begin{pmatrix} 1\\1\\0\\0\\0\\0\\0 \end{pmatrix}$};
+            
+            
+                        \node[state] (0110000) [left of=1100000]                   {$\begin{pmatrix} 0\\1\\1\\0\\0\\0\\0 \end{pmatrix}$};
+                        
+  \node[state] (1001000) [below of=0110000]                   {$\begin{pmatrix} 1\\0\\0\\1\\0\\0\\0 \end{pmatrix}$};
+  
+  \node[state] (0011000) [left of=0110000]                   {$\begin{pmatrix} 0\\0\\1\\1\\0\\0\\0 \end{pmatrix}$};
+  
+    \node[state] (0000100) [below of=0011000]                   {$\begin{pmatrix} 0\\0\\0\\0\\1\\0\\0 \end{pmatrix}$};
+    
+    
+       \node[state] (0000010) [below of=0000100]                   {$\begin{pmatrix} 0\\0\\0\\0\\0\\1\\0 \end{pmatrix}$};
+       
+          \node[state] (0000001) [right of=0000010]                   {$\begin{pmatrix} 0\\0\\0\\0\\0\\0\\1 \end{pmatrix}$};
+  
+
+
+  \path (0000200) edge [bend right]        node {$t_5$} (0000110)
+  		(0000200) edge         node {$t_6$} (0000101)
+  		
+  		(0000110) edge [bend right]        node {$t_6$} (0000011)
+  		(0000101) edge         node {$t_5$} (0000011)
+  		
+		(0000011) edge [bend left]        node {$t_1$} (1100000)
+  		 		
+  		(1100000) edge   [bend right]      node {$t_2$} (0110000)
+  		 		  		 		
+ 		(1100000) edge         node {$t_3$} (1001000)
+ 		
+		(0110000) edge  [bend right]       node {$t_3$} (0011000)
+ 		(1001000) edge         node {$t_2$} (0011000)
+ 		
+ 		(0011000) edge   [bend right]      node {$t_4$} (0000100)
+ 		
+ 		(0000100) edge   [bend right]      node {$t_5$} (0000010)
+ 		
+ 		(0000100) edge         node {$t_6$} (0000001)
+  		
+		
+		;
+        
+
+\end{tikzpicture}
+
+Das Netz ist beschränkt (der Erreichbarkeitsgraph ist endlich)\\
+
+Das Netz ist nicht reversibel (Es gibt im Graph Keinen Pfad zum Startzustand zurück)\\
+
+Das Netz ist nicht Lebendig (z.B. ist von der erreichbaren Markierung $\begin{pmatrix} 0\\0\\0\\0\\0\\0\\1 \end{pmatrix}$ kleine Transition mehr Aktivierbar)
