@@ -1,0 +1,52 @@
+Um Die Reihenfolge der einträge eindeutig zu machen mit zeilen bzw. spalten beschriftung
+\[
+\begin{pmatrix}
+&t_1&t_2&t_3&t_4&t_5&t_6\\
+pa&-1&0&1&-1&0&1  \\
+p_1&+1&-1&0&0&0&0  \\
+p_2&0&1&-1&0&0&0  \\
+p_3&0&0&0&1&-1&0  \\
+p_4&0&0&0&0&1&-1  \\
+pp&0&-1&1&0&-4&4
+\end{pmatrix}
+\]
+Lösen des Gleichnugssystems
+%WOLFRAMALPHA eingabe:
+%{{1,0,1,-1,0,1 },{ +1,-1,0,0,0,0  },{ 0,1,-1,0,0,0  },{ 0,0,0,1,-1,0  },{  0,0,0,0,1,-1  },{  0,-1,1,0,-4,4 }}*{{x_1}, {x_2}, {x_3}, {x_4},{x_5},{x_6}}={{0},{0},{0},{0},{0},{0}}
+
+\[
+\begin{pmatrix}
+-1&0&1&-1&0&1  \\
++1&-1&0&0&0&0  \\
+0&1&-1&0&0&0  \\
+0&0&0&1&-1&0  \\
+0&0&0&0&1&-1  \\
+0&-1&1&0&-4&4
+\end{pmatrix}
+*i=\begin{pmatrix}
+0\\0\\0\\0\\0\\0
+\end{pmatrix}
+\]
+Ergibt u.A. als Lösung für die S-Invarianten-Vektoren 
+\[\begin{pmatrix}
+0\\0\\0\\x\\x\\x
+\end{pmatrix}mit\ x\in \mathbb{N}\]
+Für Die T-Invarianten gilt:
+\[
+p*
+\begin{pmatrix}
+-1&0&1&-1&0&1  \\
++1&-1&0&0&0&0  \\
+0&1&-1&0&0&0  \\
+0&0&0&1&-1&0  \\
+0&0&0&0&1&-1  \\
+0&-1&1&0&-4&4
+\end{pmatrix}
+=\begin{pmatrix}
+0\\0\\0\\0\\0\\0
+\end{pmatrix}^T
+\]
+\[
+\begin{pmatrix}
+0&0&0&x&4x&x
+\end{pmatrix} mit\ x\in \mathbb{N}\]
